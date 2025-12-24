@@ -1,11 +1,11 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int a,b,sum;
+    int a,b,product;
     a=5;
     b=6;
-    sum=a+b;
-    cout<<sum;
+    product=a*b;;
+    cout<<product;
     return 0;
 
 }
