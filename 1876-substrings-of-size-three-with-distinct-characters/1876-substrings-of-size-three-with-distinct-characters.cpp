@@ -1,21 +1,31 @@
 class Solution {
 public:
     int countGoodSubstrings(string s) {
-        set<char> st;
+        if(s.size()<3) return 0;
+        vector<int> freq(26,0);
+        int distinct=0;
         int count=0;
-        int m=0;
-            if(s[m] != s[m+1] && s[m] != s[m+2] && s[m+1] != s[m+2]) count++;
-        
-        
-        int i=1;
+        for(int i=0;i<3;i++){
+          
+            if(freq[s[i]-'a']==0) 
+            distinct++;
+            freq[s[i]-'a']++;
+        }
+        if(distinct==3)count++;
+        int i=0;
         int j=3;
         while(j<s.size()){
-            if(s[i] != s[i+1] && s[i] != s[i+2] && s[i+1] != s[i+2]) count++;
-           
+            freq[s[i]-'a']--;
+            
+            if(freq[s[i]-'a']==0) distinct--;
+
+            freq[s[j]-'a']++;
+            if(freq[s[j]-'a']==1)distinct++;
+            if(distinct==3) count++;
             i++;
             j++;
+
         }
-        return count;
-        
+         return count;
     }
 };
