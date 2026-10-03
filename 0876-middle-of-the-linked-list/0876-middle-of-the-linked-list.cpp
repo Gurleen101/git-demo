@@ -11,7 +11,7 @@
 class Solution {
 public:
    
- struct ListNode* middleNode(struct ListNode* head) {
+  ListNode* middleNode( ListNode* head) {
     ListNode * fast=head;
     ListNode * slow=head;
     while(fast!=NULL && fast->next !=NULL){
